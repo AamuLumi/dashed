@@ -1,0 +1,28 @@
+<div>
+    <div class="new-task">
+        <div>
+            <div>
+                <label>Name : </label>
+                <input [(ngModel)]="task.name" name="name" placeholder="name">
+            </div>
+            <div>
+                <label>Color : </label>
+                <input [(ngModel)]="task.color" name="color" placeholder="color">
+            </div>
+            <div>
+                <label>Deadline : </label>
+                <input [(ngModel)]="task.deadline" name="deadline" type="date"
+                       placeholder="deadline">
+            </div>
+        </div>
+        <div>
+        <div>
+            <label>Description : </label>
+            <textarea [(ngModel)]="task.description" name="description"
+                      placeholder="description"></textarea>
+        </div>
+        </div>
+    </div>
+    <button class="red-button" (click)="onCancel()">Cancel</button>
+    <button (click)="onSubmit()">Add</button>
+</div>

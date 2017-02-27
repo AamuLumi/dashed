@@ -1,0 +1,9 @@
+<div id="scroll-container">
+    <homepage></homepage>
+    <dashboard></dashboard>
+    <div id="scroller">
+        <div class="scroller-element" *ngFor="let v of views; let i = index;">
+            <div class="scroller-selected" *ngIf="i === viewIndex"> </div>
+        </div>
+    </div>
+</div>

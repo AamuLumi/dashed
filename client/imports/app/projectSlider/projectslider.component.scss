@@ -1,0 +1,22 @@
+#project-slider {
+  font-size: 1.2em;
+  width: 100%;
+  color: #2196F3;
+  .project-selected {
+    font-size: 1.4em;
+    font-weight: bolder;
+  }
+}
+
+.project-container{
+  cursor: pointer;
+  margin-right: 8px;
+}
+
+.bold {
+  font-weight: bold;
+}
+
+.selection {
+  margin-right: 16px;
+}

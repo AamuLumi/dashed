@@ -1,0 +1,19 @@
+<div id="task-board">
+    <div class="task-groups-container">
+        <div class="task-group-container" *ngFor="let state of states; let i = index;">
+            <div id="{{state.id}}" class="task-group" [style.background-color]="state.color"
+                 (drop)="onDrop($event)" (dragover)="allowDrop($event)">
+                <span class="group-title"
+                      [style.background-color]="state.color">{{state.name}}</span>
+                <task *ngFor="let task of getTasks(i)" [task]="task"
+                      (click)="selectTask(task)" [selected]="task._id === selectedTask._id"
+                      [editMode]="!task._id"
+                      [onEdit]="!task._id ? removeCreatingTask : null"></task>
+            </div>
+        </div>
+    </div>
+
+    <div class="under-groups">
+        <button class="add-button" (click)="addTask()">+</button>
+    </div>
+</div>

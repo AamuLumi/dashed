@@ -1,0 +1,11 @@
+<div id="dashboard" class="view">
+    <project-slider (onSelectProject)="onSelectProject($event)"></project-slider>
+    <div class="components">
+        <div class="component-container">
+            <task-board [project]="selectedProject"></task-board>
+        </div>
+        <div class="component-container">
+            Right component
+        </div>
+    </div>
+</div>

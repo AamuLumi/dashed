@@ -1,0 +1,83 @@
+.task {
+  width: 100%;
+  height: calc(100% - 16px);
+  font-size: 0.8em;
+  background-color: rgba(255, 255, 255, 0.6);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+  border-radius: 2px;
+  display: flex;
+  flex-direction: row;
+  cursor: pointer;
+  position: relative;
+  &:hover .buttons {
+      opacity: 1;
+  }
+
+  input {
+    border: none;
+    border-bottom: solid black 2px;
+    margin: 0 4px;
+    width: calc(100% - 8px);
+    background-color: inherit;
+  }
+
+  textarea {
+    margin: 4px;
+    width: calc(100% - 16px);
+    background-color: inherit;
+    border: solid black 2px;
+    padding: 2px;
+  }
+
+  select {
+    margin: 4px;
+    width: calc(100% - 8px);
+    border: solid black 2px;
+  }
+}
+
+.task-container {
+  margin: 8px;
+}
+
+.color-sign {
+  width: 4px;
+  height: 100%;
+  margin-right: 4px;
+  border-radius: 2px;
+}
+
+.task-name {
+  font-size: 1.1em;
+  margin-bottom: 4px;
+}
+
+.task-informations {
+  padding: 4px 0 4px 0;
+  width: 100%;
+}
+
+.task-metadata {
+  color: #666666;
+  font-size: 0.75em;
+}
+
+.buttons {
+  position: absolute;
+  top: 4px;
+  right: 4px;
+  opacity: 0;
+  transition: all .25s ease;
+}
+
+.fa {
+  transition: all .25s ease;
+  color: black;
+  &:hover {
+    color: white;
+  }
+}
+
+input {
+  width: 100%;
+}

@@ -1,0 +1,48 @@
+#login-page {
+  padding: 16px;
+  height: calc(100vh - 32px);
+  display: flex;
+  justify-content: flex-start;
+  flex-direction: column;
+  .head {
+    width: 100%;
+    img {
+      display: block;
+      margin: 0 auto;
+      height: 10vh;
+    }
+  }
+}
+
+.connection-form{
+  height: 100%;
+  margin: 64px auto;
+  .input {
+    text-align: center;
+    margin: 32px auto;
+  }
+
+  input {
+    border: none;
+    border-bottom: solid 2px black;
+    background-color: inherit;
+    text-align: center;
+    font-size: 1.2em;
+  }
+
+  ::-webkit-input-placeholder {
+    color: #388E3C;
+  }
+
+  button {
+    font-size: 1.2em;
+    background-color: white;
+    border: solid 2px black;
+    transition: all .25s ease;
+    cursor: pointer;
+    border-radius: 2px;
+    &:hover {
+      background-color: #388E3C;
+    }
+  }
+}

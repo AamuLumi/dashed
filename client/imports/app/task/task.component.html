@@ -1,0 +1,38 @@
+<div class="task-container" [@appear]="state">
+    <div *ngIf="!editMode" class="task" draggable="true" (dragstart)="onDragStart($event)">
+        <div>
+            <div class="color-sign"
+                 [style.background-color]="task.color ? task.color : 'white'"></div>
+        </div>
+        <div class="task-informations">
+            <div class="task-name">{{task.name}}</div>
+            <div class="task-description" *ngIf="selected">{{task.description}}</div>
+            <div class="task-metadata">
+                {{task.deadline ? task.deadline.toLocaleString() : ''}}
+            </div>
+        </div>
+        <div class="buttons">
+            <i class="fa fa-pencil-square-o" (click)="switchEdit()"></i>
+            <i class="fa fa-times-rectangle" (click)="removeTask()"></i>
+        </div>
+    </div>
+
+    <div *ngIf="editMode" class="task">
+        <div class="task-informations">
+            <input class="task-name" [(ngModel)]="task.name" name="name" placeholder="Name">
+            <textarea class="task-description" [(ngModel)]="task.description" name="description"
+                      placeholder="Description"></textarea>
+            <div class="task-metadata">
+                <input [(ngModel)]="task.deadline" ng2-datetime-picker>
+                <select [(ngModel)]="task.color" [style.background-color]="task.color">
+                    <option *ngFor="let color of COLORS" [style.background-color]="color.value"
+                            value="{{color.value}}">{{color.name}}</option>
+                </select>
+            </div>
+        </div>
+        <div class="buttons">
+            <i class="fa fa-times" (click)="cancelEdit()"></i>
+            <i class="fa fa-check" (click)="editTask()"></i>
+        </div>
+    </div>
+</div>

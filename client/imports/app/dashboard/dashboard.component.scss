@@ -1,0 +1,17 @@
+#dashboard {
+  padding: 16px;
+  height: calc(100vh - 32px);
+  width: calc(100vw - 32px);
+
+  .component-container {
+    position: relative;
+    height: 100%;
+  }
+  .components {
+    display: flex;
+    position: relative;
+    flex-direction: row;
+    justify-content: space-around;
+    height: calc(100% - 16px);
+  }
+}

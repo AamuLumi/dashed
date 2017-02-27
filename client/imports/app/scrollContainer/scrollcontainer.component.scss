@@ -1,0 +1,25 @@
+#scroll-container {
+  height: 200vh;
+  width: 100vw;
+  overflow-y: auto;
+}
+
+#scroller {
+  position: fixed;
+  right: 0;
+  top: 0;
+  .scroller-element {
+    position: relative;
+    height: calc((100vh / 2));
+    width: 12px;
+    background-color: black;
+    .scroller-selected {
+      position: absolute;
+      top: 4px;
+      left: 0;
+      background-color: #03A9F4;
+      width: 5px;
+      height: calc((100vh / 2) - 8px);
+    }
+  }
+}

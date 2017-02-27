@@ -1,0 +1,13 @@
+<div id="homepage" class="view">
+    <div class="head">
+        <img src="images/dashed-logo.png">
+    </div>
+
+    <button (click)="disconnect()">Disconnect</button>
+
+    <div class="stats">
+        <div *ngFor="let state of states">
+            {{state.name}} : {{tasksStats[state.state]}}
+        </div>
+    </div>
+</div>

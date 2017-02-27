@@ -1,0 +1,23 @@
+<div id="project-slider">
+    <span class="selection">
+        <span class="project-container project-selected">{{selectedProject.name}}</span>
+        <span class="project-container bold" *ngIf="!addingProject" (click)="switchAddingProject()">+
+        </span>
+        <span class="project-container" *ngIf="!addingProject" (click)="deleteProject()">
+            <i class="fa fa-times"></i>
+        </span>
+    </span>
+
+    <span class="project-container" *ngFor="let project of projects">
+        <span (click)="selectProject(project)" *ngIf="project._id !== selectedProject._id">
+            {{project.name}}</span>
+    </span>
+
+    <div class="project-creation" *ngIf="addingProject">
+        <input [(ngModel)]="tmpProject.name" type="text" name="name" placeholder="Name">
+        <button (click)="switchAddingProject()">Cancel</button>
+        <button (click)="createProject()">Create</button>
+    </div>
+
+
+</div>

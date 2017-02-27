@@ -1,0 +1,17 @@
+<div id="login-page">
+    <div class="head">
+        <img src="images/dashed-logo.png">
+    </div>
+
+    <div class="connection-form">
+        <div class="input">
+            <input [(ngModel)]="username" type="text" placeholder="Username">
+        </div>
+        <div class="input">
+            <input [(ngModel)]="password" type="password" placeholder="Password">
+        </div>
+        <div class="input">
+            <button (click)="authenticate()">Authenticate</button>
+        </div>
+    </div>
+</div>
