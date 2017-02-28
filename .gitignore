@@ -5,4 +5,4 @@ typings
 .idea
 build
 dist
-local.env.js
+local.env.ts
