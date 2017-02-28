@@ -1,16 +1,16 @@
-import {Component, OnInit, Input} from '@angular/core';
-import {Task, DefaultTask} from '../../../../both/models/task.model';
-import {TaskDataService} from "../task/task.service";
-import {State, STATES} from '../tools/states';
+import { Component, OnInit, Input } from "@angular/core";
+import { Task, DefaultTask } from "../../../../both/models/task.model";
+import { TaskDataService } from "../task/task.service";
+import { State, STATES } from "../tools/states";
 
-import template from './taskboard.component.html';
-import style from './taskboard.component.scss';
-import {Project} from "../../../../both/models/project.model";
+import template from "./taskboard.component.html";
+import style from "./taskboard.component.scss";
+import { Project } from "../../../../both/models/project.model";
 
 const NO_TASK = new DefaultTask();
 
 @Component({
-	selector: 'task-board',
+	selector: "task-board",
 	template,
 	styles: [style]
 })
@@ -18,7 +18,7 @@ export class TaskBoardComponent implements OnInit {
 	tasks: Task[] = [];
 	selectedTask: Task = NO_TASK;
 	states: State[] = STATES;
-	creatingTask : Task;
+	creatingTask: Task;
 
 	@Input()
 	project: Project;
@@ -37,7 +37,7 @@ export class TaskBoardComponent implements OnInit {
 	}
 
 	getTasks(i: number): Task[] {
-		if (!this.project || this.project.name === 'Overview'){
+		if (!this.project || this.project.name === "Overview") {
 			return this.tasks.filter((t) => t.state === i);
 		}
 
@@ -49,18 +49,18 @@ export class TaskBoardComponent implements OnInit {
 		let id = event.dataTransfer.getData("text");
 		let target = event.target;
 
-		while (target && target.className !== 'task-group'){
+		while (target && target.className !== "task-group") {
 			target = target.parentNode;
 		}
 
-		if (!target || target.className !== 'task-group'){
+		if (!target || target.className !== "task-group") {
 			return;
 		}
 
-		let associatedGroup = this.states.find((s) => s.id == target.id);
+		let associatedGroup = this.states.find((s) => s.id === target.id);
 		let task = this.tasks.find((t) => t._id === id);
 
-		if (!associatedGroup || !task || task.state === associatedGroup.state){
+		if (!associatedGroup || !task || task.state === associatedGroup.state) {
 			return;
 		}
 
@@ -71,23 +71,23 @@ export class TaskBoardComponent implements OnInit {
 
 	allowDrop(event): void {
 		event.preventDefault();
-		event.dataTransfer.dropEffect = 'move';
+		event.dataTransfer.dropEffect = "move";
 	}
 
-	addTask(){
+	addTask() {
 		this.creatingTask = new DefaultTask();
 		this.creatingTask.state = 0;
 		this.creatingTask.project = this.project;
 		this.tasks.push(this.creatingTask);
 	}
 
-	removeCreatingTask(){
+	removeCreatingTask() {
 		this.tasks.splice(this.tasks.indexOf(this.creatingTask), 1);
 		this.creatingTask = undefined;
 	}
 
 	selectTask(t: Task): void {
-		if (this.selectedTask._id === t._id){
+		if (this.selectedTask._id === t._id) {
 			this.selectedTask = NO_TASK;
 		} else {
 			this.selectedTask = t;

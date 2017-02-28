@@ -1,4 +1,4 @@
-import {Component, OnInit, NgZone} from '@angular/core';
+import { Component, OnInit, NgZone } from "@angular/core";
 
 import template from "./scrollcontainer.component.html";
 import style from "./scrollcontainer.component.scss";
@@ -9,16 +9,14 @@ import style from "./scrollcontainer.component.scss";
 	styles: [style]
 })
 export class ScrollContainerComponent implements OnInit {
-	views: Array<Object> = [{
-		name: 'homepage'
+	views: Object[] = [{
+		name: "homepage"
 	}, {
-		name: 'dashboard'
+		name: "dashboard"
 	}];
 	viewIndex: number = 0;
 
-	constructor(
-		private zone: NgZone
-	) {
+	constructor(private zone: NgZone) {
 		document.onmousewheel = (e) => this.onScroll(e);
 	}
 
@@ -30,11 +28,11 @@ export class ScrollContainerComponent implements OnInit {
 	}
 
 	getScrollSize(): number {
-		let element = document.getElementById('scroll-container');
+		let element = document.getElementById("scroll-container");
 		let scrollSize = element.getBoundingClientRect().bottom -
 			element.getBoundingClientRect().top;
 
-		scrollSize = scrollSize / (element.children.length -1);
+		scrollSize = scrollSize / (element.children.length - 1);
 
 		return scrollSize;
 	}
@@ -43,7 +41,7 @@ export class ScrollContainerComponent implements OnInit {
 		if (next) {
 			window.scrollBy(0, this.getScrollSize());
 		} else {
-			window.scrollBy(0, -this.getScrollSize());
+			window.scrollBy(0, -1 * this.getScrollSize());
 		}
 	}
 

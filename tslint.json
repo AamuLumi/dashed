@@ -1,0 +1,59 @@
+{
+  "rules": {
+    "array-type": [true, "array"],
+    "arrow-return-shorthand": [true],
+    "class-name": true,
+    "comment-format": [true, "check-space"],
+    "curly": true,
+    "indent": [true, "tabs"],
+    "max-line-length": [true, 100],
+    "new-parens": true,
+    "no-duplicate-variable": true,
+    "no-eval": true,
+    "no-internal-module": true,
+    "no-invalid-this": true,
+    "no-magic-numbers": true,
+    "no-trailing-whitespace": true,
+    "no-var-keyword": true,
+    "one-line": [true, "check-open-brace", "check-whitespace"],
+    "quotemark": [true, "double"],
+    "prefer-method-signature": true,
+    "semicolon": [true, "always"],
+    "trailing-comma": [true, {"multiline": "never", "singleline": "never"}],
+    "triple-equals": [true, "allow-null-check"],
+    "typedef-whitespace": [true, {
+      "call-signature": "nospace",
+      "index-signature": "nospace",
+      "parameter": "nospace",
+      "property-declaration": "nospace",
+      "variable-declaration": "nospace"
+    }],
+    "typeof-compare": true,
+    "variable-name": [true, "check-format", "ban-keywords", "allow-leading-underscore"],
+    "whitespace": [true,
+      "check-branch",
+      "check-decl",
+      "check-operator",
+      "check-separator",
+      "check-type"
+    ]
+  },
+  "jsRules": {
+    "indent": [true, "spaces"],
+    "no-duplicate-variable": true,
+    "no-eval": true,
+    "no-trailing-whitespace": true,
+    "one-line": [true, "check-open-brace", "check-whitespace"],
+    "quotemark": [true, "double"],
+    "semicolon": false,
+    "triple-equals": [true, "allow-null-check"],
+    "variable-name": [true, "ban-keywords"],
+    "whitespace": [true,
+      "check-branch",
+      "check-decl",
+      "check-operator",
+      "check-separator",
+      "check-type"
+    ]
+  }
+}

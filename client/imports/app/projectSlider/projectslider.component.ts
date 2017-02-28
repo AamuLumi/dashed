@@ -1,17 +1,17 @@
-import {Component, OnInit, Output, EventEmitter} from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from "@angular/core";
 
-import {Project, DefaultProject} from "../../../../both/models/project.model";
-import {ProjectDataService} from "../project/project.service";
+import { Project, DefaultProject } from "../../../../both/models/project.model";
+import { ProjectDataService } from "../project/project.service";
 
-import template from './projectslider.component.html';
-import style from './projectslider.component.scss';
+import template from "./projectslider.component.html";
+import style from "./projectslider.component.scss";
 
 const OVERVIEW = new DefaultProject();
-OVERVIEW.name = 'Overview';
-OVERVIEW._id = '-1';
+OVERVIEW.name = "Overview";
+OVERVIEW._id = "-1";
 
 @Component({
-	selector: 'project-slider',
+	selector: "project-slider",
 	template,
 	styles: [style]
 })
@@ -24,9 +24,8 @@ export class ProjectSliderComponent implements OnInit {
 	@Output()
 	onSelectProject = new EventEmitter<Project>();
 
-	constructor(
-		private projectDataService: ProjectDataService
-	) {}
+	constructor(private projectDataService: ProjectDataService) {
+	}
 
 	ngOnInit(): void {
 		this.projectDataService.getData().zone().subscribe({
@@ -37,8 +36,8 @@ export class ProjectSliderComponent implements OnInit {
 		});
 	}
 
-	switchAddingProject(){
-		if (this.addingProject){
+	switchAddingProject() {
+		if (this.addingProject) {
 			this.tmpProject = undefined;
 		} else {
 			this.tmpProject = new DefaultProject();
@@ -47,18 +46,18 @@ export class ProjectSliderComponent implements OnInit {
 		this.addingProject = !this.addingProject;
 	}
 
-	createProject(){
+	createProject() {
 		this.projectDataService.createProject(this.tmpProject);
 		this.switchAddingProject();
 	}
 
-	selectProject(p: Project){
+	selectProject(p: Project) {
 		this.selectedProject = p;
 		this.onSelectProject.emit(this.selectedProject);
 	}
 
-	deleteProject(){
-		if (!this.selectedProject._id || this.selectedProject._id === '-1'){
+	deleteProject() {
+		if (!this.selectedProject._id || this.selectedProject._id === "-1") {
 			return;
 		}
 

@@ -1,14 +1,14 @@
-import {Component, OnInit} from '@angular/core';
+import { Component, OnInit } from "@angular/core";
 
-import {Task} from '../../../../both/models/task.model';
-import {State, STATES} from '../tools/states';
+import { Task } from "../../../../both/models/task.model";
+import { State, STATES } from "../tools/states";
+import { TaskDataService } from "../task/task.service";
 
-import template from './homepage.component.html';
-import style from './homepage.component.scss';
-import {TaskDataService} from "../task/task.service";
+import template from "./homepage.component.html";
+import style from "./homepage.component.scss";
 
 @Component({
-	selector: 'homepage',
+	selector: "homepage",
 	template,
 	styles: [style]
 })
@@ -35,12 +35,12 @@ export class HomePageComponent implements OnInit {
 
 	disconnect(): void {
 		Meteor.logout((err) => {
-			if (err) console.log(err);
-			else {
+			if (err) {
+				console.log(err);
+			} else {
 				window.location.reload();
 			}
 		});
-		console.log('called');
 	}
 
 }

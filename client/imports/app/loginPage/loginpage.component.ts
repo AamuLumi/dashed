@@ -1,26 +1,26 @@
-import {Component} from '@angular/core';
+import { Component } from "@angular/core";
 
-import template from './loginpage.component.html';
-import style from './loginpage.component.scss';
+import template from "./loginpage.component.html";
+import style from "./loginpage.component.scss";
 
 @Component({
-	selector: 'login-page',
+	selector: "login-page",
 	template,
-	styles : [style]
+	styles: [style]
 })
 export class LoginPageComponent {
-	username: string = '';
-	password: string = '';
+	username: string = "";
+	password: string = "";
 
-	constructor(){
+	constructor() {
 
 	}
 
-	authenticate(): void{
+	authenticate(): void {
 		Meteor.loginWithPassword(this.username, this.password, (err) => {
-			if (err){
+			if (err) {
 				console.log(err);
 			}
-		})
+		});
 	}
 }

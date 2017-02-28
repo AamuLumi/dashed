@@ -1,12 +1,12 @@
-import {Component, Input, OnInit} from '@angular/core';
-import {Task, DefaultTask} from '../../../../both/models/task.model';
+import {Component, Input, OnInit} from "@angular/core";
+import {Task, DefaultTask} from "../../../../both/models/task.model";
 import {TaskDataService} from "../task/task.service";
 
-import template from './taskform.component.html';
-import style from './taskform.component.scss';
+import template from "./taskform.component.html";
+import style from "./taskform.component.scss";
 
 @Component({
-	selector: 'task-form',
+	selector: "task-form",
 	template,
 	styles: [style]
 })
@@ -23,12 +23,14 @@ export class TaskFormComponent implements OnInit {
 	}
 
 	ngOnInit(): void {
-		if (!this.task)
+		if (!this.task) {
 			this.task = new DefaultTask();
+		}
 
-		if (!this.dismiss)
+		if (!this.dismiss) {
 			this.dismiss = () => {
 			};
+		}
 	}
 
 	onSubmit(): void {

@@ -1,14 +1,14 @@
 import { Injectable } from "@angular/core";
 import { ObservableCursor } from "meteor-rxjs";
 import { Project } from "../../../../both/models/project.model";
-import { ProjectCollection } from "../../../../both/collections/project.collection";
+import { PROJECT_COLLECTION } from "../../../../both/collections/project.collection";
 
 @Injectable()
 export class ProjectDataService {
 	private data: ObservableCursor<Project>;
 
 	constructor() {
-		this.data = ProjectCollection.find({});
+		this.data = PROJECT_COLLECTION.find({});
 	}
 
 	public getData(): ObservableCursor<Project> {
@@ -16,20 +16,20 @@ export class ProjectDataService {
 	}
 
 	public createProject(t: Project): void {
-		ProjectCollection.insert(t).zone();
+		PROJECT_COLLECTION.insert(t).zone();
 	}
 
 	public updateProject(t: Project): void {
-		if (!t._id){
+		if (!t._id) {
 			return this.createProject(t);
 		}
 
 		let id = t._id;
 		delete t._id;
-		ProjectCollection.update({'_id': id}, {$set :t}).zone();
+		PROJECT_COLLECTION.update({"_id": id}, {$set: t}).zone();
 	}
 
 	public deleteProject(t: Project): void {
-		ProjectCollection.remove({'_id': t._id}).zone();
+		PROJECT_COLLECTION.remove({"_id": t._id}).zone();
 	}
 }

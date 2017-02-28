@@ -1,5 +1,5 @@
-import SimpleSchema from 'simpl-schema';
-import {Project, ProjectSchema} from './project.model';
+import SimpleSchema from "simpl-schema";
+import { Project, PROJECT_SCHEMA } from "./project.model";
 
 export interface Task {
 	name: string;
@@ -11,12 +11,12 @@ export interface Task {
 	_id: string;
 }
 
-export const TaskSchema = new SimpleSchema ({
+export const TASK_SCHEMA = new SimpleSchema({
 	name: {type: String},
 	description: {type: String, optional: true},
 	deadline: {type: Date, optional: true},
 	color: {type: String, optional: true},
-	project: {type: ProjectSchema},
+	project: {type: PROJECT_SCHEMA},
 	state: {type: Number, defaultValue: 0}
 });
 
@@ -29,5 +29,6 @@ export class DefaultTask implements Task {
 	project: Project;
 	_id: string;
 
-	constructor() {}
+	constructor() {
+	}
 }

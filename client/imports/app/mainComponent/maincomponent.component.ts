@@ -1,17 +1,17 @@
-import {Component, NgZone} from '@angular/core';
+import { Component, NgZone } from "@angular/core";
 
-import template from './maincomponent.component.html';
-import style from './maincomponent.component.scss';
+import template from "./maincomponent.component.html";
+import style from "./maincomponent.component.scss";
 
 @Component({
-	selector: 'main-component',
+	selector: "main-component",
 	template,
-	styles : [style]
+	styles: [style]
 })
 export class MainComponent {
 	authenticated: boolean = false;
 
-	constructor(private zone: NgZone){
+	constructor(private zone: NgZone) {
 		Accounts.onLogin(() => {
 			zone.run(() => {
 				this.authenticated = (Meteor.user() !== undefined);

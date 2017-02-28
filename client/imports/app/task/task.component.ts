@@ -1,26 +1,35 @@
-import {Component, Input, OnInit, trigger, state, transition, animate, style} from '@angular/core';
-import {Task} from '../../../../both/models/task.model';
-import {COLORS} from '../tools/colors';
+import {
+	Component,
+	Input,
+	OnInit,
+	trigger,
+	state,
+	transition,
+	animate,
+	style
+} from "@angular/core";
+import { Task } from "../../../../both/models/task.model";
+import { COLORS } from "../tools/colors";
 
-import template from './task.component.html';
-import styleCss from './task.component.scss';
-import {TaskDataService} from "./task.service";
+import template from "./task.component.html";
+import styleCss from "./task.component.scss";
+import { TaskDataService } from "./task.service";
 
 @Component({
-	selector: 'task',
+	selector: "task",
 	template,
 	styles: [styleCss],
 	animations: [
-		trigger('appear', [
-			state('in', style({opacity: 1})),
-			transition(':enter', [
+		trigger("appear", [
+			state("in", style({opacity: 1})),
+			transition(":enter", [
 				style({opacity: 0}),
-				animate('.25s ease-in')
+				animate(".25s ease-in")
 			]),
-			transition(':leave', [
+			transition(":leave", [
 				style({opacity: 0}),
-				animate('.25s ease-out')
-			]),
+				animate(".25s ease-out")
+			])
 		])
 	]
 })
@@ -68,7 +77,7 @@ export class TaskComponent implements OnInit {
 	cancelEdit(): void {
 		this.switchEdit();
 
-		if (this.onEdit){
+		if (this.onEdit) {
 			this.onEdit();
 		}
 	}
@@ -78,7 +87,7 @@ export class TaskComponent implements OnInit {
 		this.switchEdit();
 		this.taskDataService.updateTask(this.task);
 
-		if (this.onEdit){
+		if (this.onEdit) {
 			this.onEdit();
 		}
 	}
