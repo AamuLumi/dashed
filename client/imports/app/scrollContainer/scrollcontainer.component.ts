@@ -62,7 +62,8 @@ export class ScrollContainerComponent implements OnInit {
 
 		// Search a scrollable element in the target
 		while (element && element.tagName !== "SCROLL-CONTAINER") {
-			if (element.className.indexOf("scrollable") !== -1) {
+			// Element with scrollHeight !== offsetHeight are scrollable element
+			if (element.scrollHeight !== element.offsetHeight) {
 				return this.scrollInElement(element, event.deltaY);
 			}
 

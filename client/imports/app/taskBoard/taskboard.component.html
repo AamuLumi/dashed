@@ -1,7 +1,7 @@
 <div id="task-board">
     <div class="task-groups-container">
         <div class="task-group-container" *ngFor="let state of states; let i = index;">
-            <div id="{{state.id}}" class="task-group scrollable"
+            <div id="{{state.id}}" class="task-group"
                  [style.background-color]="state.color"
                  (drop)="onDrop($event)" (dragover)="allowDrop($event)">
                 <span class="group-title"
