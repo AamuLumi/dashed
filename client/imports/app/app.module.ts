@@ -18,6 +18,8 @@ import { ScrollContainerComponent } from "./scrollContainer/scrollcontainer.comp
 import { HomePageComponent } from "./homepage/homepage.component";
 import { MainComponent } from "./mainComponent/maincomponent.component";
 import { LoginPageComponent } from "./loginPage/loginpage.component";
+import { NoteComponent } from "./note/note.component";
+import { NoteBoardComponent } from "./noteBoard/noteboard.component";
 
 
 @NgModule({
@@ -32,7 +34,9 @@ import { LoginPageComponent } from "./loginPage/loginpage.component";
 		ScrollContainerComponent,
 		HomePageComponent,
 		MainComponent,
-		LoginPageComponent
+		LoginPageComponent,
+		NoteComponent,
+		NoteBoardComponent
 	],
 	// Entry Components
 	entryComponents: [
