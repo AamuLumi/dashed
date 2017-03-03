@@ -31,7 +31,6 @@ export class TaskBoardComponent implements OnInit {
 		this.taskDataService.getData().zone().subscribe({
 			next: (tasks) => {
 				this.tasks = tasks;
-				console.log(this.tasks);
 			}
 		});
 	}
@@ -41,7 +40,8 @@ export class TaskBoardComponent implements OnInit {
 			return this.tasks.filter((t) => t.state === i);
 		}
 
-		return this.tasks.filter((t) => t.state === i && t.project && t.project.name === this.project.name);
+		return this.tasks.filter(
+			(t) => t.state === i && t.project && t.project.name === this.project.name);
 	}
 
 	onDrop(event): void {
@@ -75,6 +75,10 @@ export class TaskBoardComponent implements OnInit {
 	}
 
 	addTask() {
+		if (!this.project || this.project.name === "Overview") {
+			return;
+		}
+
 		this.creatingTask = new DefaultTask();
 		this.creatingTask.state = 0;
 		this.creatingTask.project = this.project;
