@@ -3,6 +3,8 @@ import { Component, OnInit, NgZone } from "@angular/core";
 import template from "./scrollcontainer.component.html";
 import style from "./scrollcontainer.component.scss";
 
+const SCROLL_PIXELS = 10;
+
 @Component({
 	selector: "scroll-container",
 	template,
@@ -45,9 +47,29 @@ export class ScrollContainerComponent implements OnInit {
 		}
 	}
 
+	scrollInElement(element: HTMLElement, deltaY) {
+		if (deltaY > 0 && element.scrollTop < element.scrollHeight) {
+			element.scrollTop += SCROLL_PIXELS;
+		} else if (deltaY < 0 && element.scrollTop > 0) {
+			element.scrollTop -= SCROLL_PIXELS;
+		}
+	}
+
 	onScroll(event) {
 		event.preventDefault();
 
+		let element = event.target;
+
+		// Search a scrollable element in the target
+		while (element && element.tagName !== "SCROLL-CONTAINER") {
+			if (element.className.indexOf("scrollable") !== -1) {
+				return this.scrollInElement(element, event.deltaY);
+			}
+
+			element = element.parentNode;
+		}
+
+		// If no scrollable element found, try to scroll in the window
 		if (event.deltaY > 0 && this.viewIndex < this.views.length - 1) {
 			this.scrollToElement(true);
 			this.zone.run(() => this.viewIndex++);
